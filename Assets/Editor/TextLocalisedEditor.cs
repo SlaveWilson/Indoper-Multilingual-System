@@ -12,14 +12,20 @@ public class TextLocalisedEditWindow : EditorWindow
         window.titleContent = new GUIContent("Localiser Window");
         window.ShowUtility();
         window.key = key;
+        window.language = LocalisationSystem.language;
         window.value = LocalisationSystem.GetLocalisedValue(key);
     }
 
     public string key;
+    public LocalisationSystem.Language language;
     public string value;
 
     public void OnGUI()
     {
+        EditorGUILayout.BeginHorizontal();
+        EditorGUILayout.LabelField("Language : " + language.ToString());
+        EditorGUILayout.EndHorizontal();
+
         key = EditorGUILayout.TextField("Key :", key);
         EditorGUILayout.BeginHorizontal();
         EditorGUILayout.LabelField("Value:", GUILayout.MaxWidth(50));
