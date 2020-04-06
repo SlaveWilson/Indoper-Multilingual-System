@@ -62,9 +62,4 @@ public class TextLocaliserUI : MonoBehaviour
         string value = localisedString.value;
         textField.text = value;
     }
-
-    private void OpenPopup(LocalisedString key)
-    {
-
-    }
 }
