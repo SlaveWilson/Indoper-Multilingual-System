@@ -390,7 +390,7 @@ RectTransform:
   m_GameObject: {fileID: 1124700324}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 0.97}
   m_Children: []
   m_Father: {fileID: 1906132439}
   m_RootOrder: 0
@@ -418,7 +418,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: Indoper
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -487,10 +487,10 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1124700326}
-    characterCount: 8
+    characterCount: 7
     spriteCount: 0
-    spaceCount: 1
-    wordCount: 2
+    spaceCount: 0
+    wordCount: 1
     linkCount: 0
     lineCount: 1
     pageCount: 1
@@ -532,6 +532,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   localisedString:
     key: APP_Name
+  keyword: 
+  dictionary:
+    keyData:
+    - APP_Name
+    - APP_Version
+    - APP_Menu_Start
+    valueData:
+    - Indoper
+    - v1.0
+    - Start
 --- !u!1 &1906132435
 GameObject:
   m_ObjectHideFlags: 0
@@ -567,7 +577,7 @@ MonoBehaviour:
   m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 55
 --- !u!114 &1906132437
 MonoBehaviour:
   m_ObjectHideFlags: 0

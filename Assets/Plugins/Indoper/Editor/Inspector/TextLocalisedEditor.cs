@@ -65,7 +65,7 @@ public class TextLocaliserSearchWindow: EditorWindow
 
     public string value;
     public Vector2 scroll;
-    public Dictionary<string, string> dictionary;
+    public StringStringDictionary dictionary;
 
     private void OnEnable()
     {

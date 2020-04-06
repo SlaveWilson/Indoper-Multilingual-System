@@ -18,9 +18,9 @@ public class CSVLoader
         csvFile = Resources.Load<TextAsset>("localisation");
     }
 
-    public Dictionary<string,string> GetDictionaryValues(string attributeId)
+    public StringStringDictionary GetDictionaryValues(string attributeId)
     {
-        Dictionary<string, string> dictionary = new Dictionary<string, string>();
+        StringStringDictionary dictionary = new StringStringDictionary();
 
         string[] lines = csvFile.text.Split(lineSeperator);
 
@@ -57,9 +57,12 @@ public class CSVLoader
 
                 if (dictionary.ContainsKey(key)) continue;
 
-                var value = fields[attributeIndex];
+                if (i != 0)
+                {
+                    var value = fields[attributeIndex];
 
-                dictionary.Add(key, value);
+                    dictionary.Add(key, value);
+                }
             }
         }
 

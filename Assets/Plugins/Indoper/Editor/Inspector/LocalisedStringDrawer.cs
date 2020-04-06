@@ -1,7 +1,6 @@
 ﻿using UnityEditor;
 using UnityEngine;
 
-[CustomPropertyDrawer(typeof(LocalisedString))]
 public class LocalisedStringDrawer : PropertyDrawer
 {
     bool dropdown;
@@ -9,32 +8,16 @@ public class LocalisedStringDrawer : PropertyDrawer
 
     public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
     {
-        if (dropdown)
-        {
-            return height + 25;
-        }
-
-        return 20;
+        return height + 25;
     }
 
     public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
     {
         EditorGUI.BeginProperty(position, label, property);
+
         position = EditorGUI.PrefixLabel(position, GUIUtility.GetControlID(FocusType.Passive), label);
         position.width -= 34;
         position.height = 18;
-
-        Rect valueRect = new Rect(position);
-        valueRect.x += 15;
-        valueRect.width -= 15;
-
-        Rect foldButtonRect = new Rect(position);
-        foldButtonRect.width = 15;
-
-        dropdown = EditorGUI.Foldout(foldButtonRect, dropdown, "");
-
-        position.x += 15;
-        position.width -= 15;
 
         SerializedProperty key = property.FindPropertyRelative("key");
         key.stringValue = EditorGUI.TextField(position, key.stringValue);
@@ -61,16 +44,20 @@ public class LocalisedStringDrawer : PropertyDrawer
             TextLocalisedEditWindow.Open(key.stringValue);
         }
 
-        if (dropdown)
-        {
-            var value = LocalisationSystem.GetLocalisedValue(key.stringValue);
-            GUIStyle style = GUI.skin.box;
-            height = style.CalcHeight(new GUIContent(value), valueRect.width);
+        //position.x = EditorGUI.PrefixLabel(position, GUIUtility.GetControlID(FocusType.Passive), label).x;
 
-            valueRect.height = height;
-            valueRect.y += 21;
-            EditorGUI.LabelField(valueRect, value, EditorStyles.wordWrappedLabel);
-        }
+        Rect valueRect = new Rect(position.x, position.y + 18, 100, position.height);
+
+        var value = LocalisationSystem.GetLocalisedValue(key.stringValue);
+        GUIStyle style = GUI.skin.box;
+        height = style.CalcHeight(new GUIContent(value), valueRect.width);
+
+        valueRect.height = height;
+        valueRect.y += 21;
+        EditorGUI.LabelField(valueRect, value, EditorStyles.wordWrappedLabel);
+
+        //EditorGUI.PropertyField(valueRect, property.FindPropertyRelative("value"), GUIContent.none);
+        
 
         EditorGUI.EndProperty();
     }

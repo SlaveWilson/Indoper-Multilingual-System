@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class LocalisationSystem : MonoBehaviour
@@ -13,8 +11,8 @@ public class LocalisationSystem : MonoBehaviour
 
     public static Language language = Language.English;
 
-    private static Dictionary<string, string> localisedEN;
-    private static Dictionary<string, string> localisedHK;
+    private static StringStringDictionary localisedEN;
+    private static StringStringDictionary localisedHK;
 
     public static bool isInit;
 
@@ -93,7 +91,7 @@ public class LocalisationSystem : MonoBehaviour
         UpdateDictionaries();
     }
 
-    public static Dictionary<string, string> GetDictionaryForEditor()
+    public static StringStringDictionary GetDictionaryForEditor()
     {
         if(!isInit) Init();
         return localisedEN;
