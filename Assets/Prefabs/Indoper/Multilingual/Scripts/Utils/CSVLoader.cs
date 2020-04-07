@@ -57,9 +57,12 @@ public class CSVLoader
 
                 if (dictionary.ContainsKey(key)) continue;
 
-                var value = fields[attributeIndex];
+                if (i != 0)
+                {
+                    var value = fields[attributeIndex];
 
-                dictionary.Add(key, value);
+                    dictionary.Add(key, value);
+                }
             }
         }
 

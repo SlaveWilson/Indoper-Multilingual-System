@@ -1,6 +1,7 @@
 ﻿using TMPro;
 using UnityEngine;
 
+[ExecuteInEditMode]
 [RequireComponent(typeof(TextMeshProUGUI))]
 public class TextLocaliserUI : MonoBehaviour
 {
